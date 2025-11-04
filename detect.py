@@ -14,6 +14,12 @@ if not os.path.exists("temp"):
 
 # ------------------------------------------------------------
 # Load YOLO model
+# Load helmet detection model
+# GitHub release URL (replace with your own link)
+url = "https://github.com/smritichapra/Helmet-and-Number-Plate-Detection-and-Recognition/releases/tag/hi"
+
+# Download the model file
+urllib.request.urlretrieve(url, "yolov3-custom_7000.weights")
 # ------------------------------------------------------------
 net = cv2.dnn.readNet("yolov3-custom_7000.weights", "yolov3-custom.cfg")
 
@@ -29,6 +35,12 @@ except:
 
 # ------------------------------------------------------------
 # Load helmet detection model
+# GitHub release URL (replace with your own link)
+url = "https://github.com/smritichapra/Helmet-and-Number-Plate-Detection-and-Recognition/releases/tag/hii"
+
+# Download the model file
+urllib.request.urlretrieve(url, "helmet-nonhelmet_cnn.h5")
+
 # ------------------------------------------------------------
 model = load_model('helmet-nonhelmet_cnn.h5')
 
@@ -106,3 +118,4 @@ if uploaded_file is not None:
         # Cleanup temporary video
         os.remove(temp_file_path)
         st.success("✅ Processing complete! Temporary file removed.")
+
